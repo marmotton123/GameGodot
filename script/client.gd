@@ -71,12 +71,15 @@ func arriver_au_comptoir() -> void:
 		anim_player.play("Idle")
 		anim_player.speed_scale = 1.0
 		
-		# NOUVEAU : Le client est arrivé, il attend son repas !
+		# Le client attend son kebab
 		en_attente_kebab = true
 		
-		# Tu peux même lancer un dialogue automatique ici !
+		# (Optionnel) Le dialogue s'affiche
 		if dialogue_ui_node:
-			dialogue_ui_node.start_dialogue("Client", "Faites-moi un kebab... avec beaucoup de chair.")
+			dialogue_ui_node.start_dialogue("Client", "Faites-moi un kebab complet s'il vous plaît !")
+			
+		# L'APPEL MAGIQUE : Il crie au groupe "Station" de lancer la fonction "demarrer_commande"
+		get_tree().call_group("station", "demarrer_commande")
 	)
 	
 # --- FONCTION D'INTERACTION (Héritée de Interactable) ---

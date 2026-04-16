@@ -592,7 +592,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iwtn5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3t6hu"]
-size = Vector3(0.11315848, 0.07794717, 0.1705353)
+size = Vector3(0.08004743, 0.04799021, 0.08926468)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huar1"]
 resource_name = "Wood"
@@ -2146,7 +2146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.59515, 1.5101202, 1.051686
 
 [node name="paniere pain" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=1263369291 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
-temps_requis = 1.5
+temps_requis = 0.2
 station_kebab = NodePath("../KebabStation")
 
 [node name="SM_Bread_Bunch_T_Bread_0" type="MeshInstance3D" parent="Magasin/Objets/aliments/paniere pain" unique_id=1129799564]
@@ -2164,7 +2164,7 @@ shape = SubResource("BoxShape3D_jphf3")
 [node name="Bac_Salade" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=957268683 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
 nom_ingredient = "salade"
-temps_requis = 1.0
+temps_requis = 0.2
 station_kebab = NodePath("../KebabStation")
 
 [node name="salde" type="MeshInstance3D" parent="Magasin/Objets/aliments/Bac_Salade" unique_id=293708757]
@@ -2178,7 +2178,7 @@ shape = SubResource("BoxShape3D_3mj5r")
 [node name="Bac_Tomates" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=1820981422 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
 nom_ingredient = "tomates"
-temps_requis = 1.0
+temps_requis = 0.2
 station_kebab = NodePath("../KebabStation")
 
 [node name="tomate" type="MeshInstance3D" parent="Magasin/Objets/aliments/Bac_Tomates" unique_id=1085994924]
@@ -2192,6 +2192,7 @@ shape = SubResource("BoxShape3D_l0cfq")
 [node name="Bac_Viande" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=1880983771 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
 nom_ingredient = "viande"
+temps_requis = 0.2
 station_kebab = NodePath("../KebabStation")
 
 [node name="viande" type="MeshInstance3D" parent="Magasin/Objets/aliments/Bac_Viande" unique_id=1395508907]

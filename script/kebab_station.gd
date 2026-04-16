@@ -7,6 +7,7 @@ class_name KebabStation
 @export var mesh_viande : Node3D
 @export var mesh_kebab_ferme : Node3D # Remplace l'emballage. C'est le modèle du kebab roulé/fermé
 
+var commande_en_cours : bool = false
 var etape_recette : int = 0 
 var joueur_regarde : bool = false # Pour que le joueur puisse interagir
 
@@ -15,11 +16,12 @@ func _ready():
 
 func reinitialiser_station():
 	etape_recette = 0
+	commande_en_cours = false
 	mesh_pain.visible = false
 	mesh_salade.visible = false
 	mesh_tomates.visible = false
 	mesh_viande.visible = false
-	if mesh_kebab_ferme: mesh_kebab_ferme.visible = false
+	mesh_kebab_ferme.visible = false
 
 # --- FONCTION D'INTERACTION DIRECTE (Appelée par le joueur) ---
 func _process(_delta):
@@ -37,8 +39,7 @@ func fermer_kebab():
 	mesh_salade.visible = false
 	mesh_tomates.visible = false
 	mesh_viande.visible = false
-	# ...Et on affiche le modèle du Kebab fermé !
-	if mesh_kebab_ferme: mesh_kebab_ferme.visible = true
+	mesh_kebab_ferme.visible = true
 	
 	etape_recette = 5
 	print("Kebab fermé !")
@@ -85,9 +86,24 @@ func essayer_ajouter_viande():
 		etape_recette = 4
 
 func peut_ajouter(nom_ingredient: String) -> bool:
+	# NOUVEAU : Si pas de commande, on bloque tout de suite !
+	if not commande_en_cours:
+		return false
+		
 	match nom_ingredient:
 		"pain": return etape_recette == 0
 		"salade": return etape_recette == 1
 		"tomates": return etape_recette == 2
 		"viande": return etape_recette == 3
 	return false
+	
+func est_disponible() -> bool:
+	# Le Raycast n'affichera le texte "E" sur la table QUE si on est à l'étape 4 ou 5
+	if etape_recette == 4 or etape_recette == 5:
+		return true
+	else:
+		return false
+
+func demarrer_commande() -> void:
+	commande_en_cours = true
+	print("Un client est là ! La cuisine est ouverte.")
