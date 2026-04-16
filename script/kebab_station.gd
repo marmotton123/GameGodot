@@ -83,3 +83,11 @@ func essayer_ajouter_viande():
 	if etape_recette == 3:
 		mesh_viande.visible = true
 		etape_recette = 4
+
+func peut_ajouter(nom_ingredient: String) -> bool:
+	match nom_ingredient:
+		"pain": return etape_recette == 0
+		"salade": return etape_recette == 1
+		"tomates": return etape_recette == 2
+		"viande": return etape_recette == 3
+	return false

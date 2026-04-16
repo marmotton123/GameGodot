@@ -5,8 +5,6 @@ extends RayCast3D
 @onready var interact_text = owner.get_node("UI/InteractText")
 
 # --- VARIABLES INTERNES ---
-# NOUVEAU : On le type en 'Node3D' plutôt que 'Interactable' 
-# pour qu'il accepte aussi les bacs de cuisine (StaticBody3D)
 var current_target : Node3D = null
 
 func _physics_process(_delta: float) -> void:
@@ -18,9 +16,7 @@ func _physics_process(_delta: float) -> void:
 		# Le RayCast valide la cible SI c'est un Interactable OU s'il possède la variable "joueur_regarde"
 		if hit is Interactable or "joueur_regarde" in hit:
 			
-			interact_text.show()
-			
-			# -- LE JOUEUR REGARDE UN NOUVEL OBJET VALIDE --
+			# -- 1. CHANGEMENT DE CIBLE --
 			if current_target != hit:
 				# On éteint l'ancien objet proprement
 				_cleanup_target()
@@ -28,20 +24,34 @@ func _physics_process(_delta: float) -> void:
 				# On cible le nouveau
 				current_target = hit
 				
-				# Si c'est un vieil Interactable, on l'allume
 				if current_target.has_method("activate_highlight"):
 					current_target.activate_highlight()
 					
-				# Si c'est un élément de cuisine, on lui dit qu'on le regarde !
 				if "joueur_regarde" in current_target:
 					current_target.joueur_regarde = true
 					
 			
+			# -- 2. GESTION DE L'AFFICHAGE DU TEXTE "E" --
+			# Si l'objet possède une condition d'interaction (comme nos bacs à ingrédients)
+			if current_target.has_method("est_disponible"):
+				if current_target.est_disponible():
+					interact_text.show()
+				else:
+					interact_text.hide()
+			else:
+				# Si l'objet est normal (une porte, un PNJ classique...)
+				interact_text.show()
+					
+			
 			# --- PHASE 2 : ACTION (CLIC SIMPLE) ---
-			# On garde ça uniquement pour les objets qui utilisent la fonction 'interact()'
-			# (Les bacs gèrent leur propre maintien de touche dans leur script)
-			if Input.is_action_just_pressed("interact"): 
-				if current_target.has_method("interact"):
+			if Input.is_action_just_pressed("interact"):
+				
+				# On empêche le clic si l'objet n'est pas disponible (ex: kebab fermé)
+				if current_target.has_method("est_disponible") and not current_target.est_disponible():
+					pass # On ne fait rien
+					
+				# Sinon, on interagit normalement
+				elif current_target.has_method("interact"):
 					current_target.interact(player)
 					
 		else:

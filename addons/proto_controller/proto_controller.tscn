@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbctb856bmvt0" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="Script" uid="uid://dxinw61s7871y" path="res://script/ray_cast_3d.gd" id="2_wr06p"]
+[ext_resource type="Texture2D" uid="uid://d1palmebc3755" path="res://image/image.png" id="3_5hfox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -92,3 +93,22 @@ offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Pièges récupérés : 0 / 3"
+
+[node name="KebabProgressBar" type="TextureProgressBar" parent="UI" unique_id=722313260]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -39.5
+offset_right = 127.5
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+fill_mode = 4
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+texture_progress = ExtResource("3_5hfox")

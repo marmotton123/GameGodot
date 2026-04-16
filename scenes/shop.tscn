@@ -1895,7 +1895,7 @@ shadow_mesh = SubResource("ArrayMesh_8af1y")
 [node name="Shop" type="Node3D" unique_id=1755080577]
 
 [node name="Client" parent="." unique_id=1995194289 node_paths=PackedStringArray("dialogue_ui_node", "point_intermediaire", "destination_node") instance=ExtResource("2_xfvoa")]
-transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 58.816097, 0.5003165, -20.586155)
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 58.816097, 0.5003165, -6.818488)
 dialogue_ui_node = NodePath("../CanvasLayer_Dialogue")
 point_intermediaire = NodePath("../déplacement/PointDePassage")
 destination_node = NodePath("../déplacement/DestinationClient")
@@ -1905,13 +1905,13 @@ vitesse_animation_base = 3.0
 [node name="déplacement" type="Node3D" parent="." unique_id=208770627]
 
 [node name="DestinationClient" type="Marker3D" parent="déplacement" unique_id=1130286280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.59287, -0.042148113, -0.14127207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.42886, 0.5, -0.14127207)
 
 [node name="PointDePassage" type="Marker3D" parent="déplacement" unique_id=469669199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.92534, 0.5, -1.7165086)
 
 [node name="ProtoController" parent="." unique_id=394515109 instance=ExtResource("1_lx5au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 1, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.11449, 0.5018414, -2.0209723)
 can_sprint = true
 can_freefly = true
 input_left = "move_left"
@@ -2146,6 +2146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.59515, 1.5101202, 1.051686
 
 [node name="paniere pain" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=1263369291 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
+temps_requis = 1.5
 station_kebab = NodePath("../KebabStation")
 
 [node name="SM_Bread_Bunch_T_Bread_0" type="MeshInstance3D" parent="Magasin/Objets/aliments/paniere pain" unique_id=1129799564]
@@ -2163,6 +2164,7 @@ shape = SubResource("BoxShape3D_jphf3")
 [node name="Bac_Salade" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=957268683 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
 nom_ingredient = "salade"
+temps_requis = 1.0
 station_kebab = NodePath("../KebabStation")
 
 [node name="salde" type="MeshInstance3D" parent="Magasin/Objets/aliments/Bac_Salade" unique_id=293708757]
@@ -2176,6 +2178,7 @@ shape = SubResource("BoxShape3D_3mj5r")
 [node name="Bac_Tomates" type="StaticBody3D" parent="Magasin/Objets/aliments" unique_id=1820981422 node_paths=PackedStringArray("station_kebab")]
 script = ExtResource("18_dfcnn")
 nom_ingredient = "tomates"
+temps_requis = 1.0
 station_kebab = NodePath("../KebabStation")
 
 [node name="tomate" type="MeshInstance3D" parent="Magasin/Objets/aliments/Bac_Tomates" unique_id=1085994924]
@@ -2223,7 +2226,7 @@ transform = Transform3D(1.1810204, 0, 0, 0, 1, 0, 0, 0, 0.92728597, -1.2413635, 
 mesh = SubResource("ArrayMesh_3vdjm")
 
 [node name="Cube_033" type="MeshInstance3D" parent="Magasin/objets sans collision" unique_id=717794315]
-transform = Transform3D(-0.47239643, 0, 4.129821e-08, 0, 0.47239643, 0, -4.129821e-08, 0, -0.47239643, 3.5934753, 0.78500724, -2.384964)
+transform = Transform3D(-0.47239643, 0, 4.129821e-08, 0, 0.47239643, 0, -4.129821e-08, 0, -0.47239643, 3.5934753, 0.7457707, -2.2465546)
 mesh = SubResource("ArrayMesh_ci65a")
 
 [node name="Phone_001" type="MeshInstance3D" parent="Magasin/objets sans collision" unique_id=758493362]

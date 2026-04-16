@@ -302,7 +302,7 @@ mesh = SubResource("ArrayMesh_onqku")
 transform = Transform3D(0.71761894, 0, 0, 0, 1.4745921, 0, 0, 0, 1.192631, 0.09965536, -0.008034555, -0.06461432)
 mesh = SubResource("ArrayMesh_6lnj8")
 
-[node name="SM_SmartSandwich" type="MeshInstance3D" parent="." unique_id=1432853667]
+[node name="SM_SmartSandwich" type="MeshInstance3D" parent="." unique_id=1432853667 groups=["station"]]
 transform = Transform3D(2, 0, 0, 0, 0.025725044, 1.9998345, 0, -1.9998345, 0.025725044, 0.14737944, 0, -0.013291091)
 visible = false
 

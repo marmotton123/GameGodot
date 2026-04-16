@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="testt"
+config/name="GodotGame"
 run/main_scene="uid://cr1el0l2ebl8e"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
