@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://csdxjt0p8tar1"]
+
+[ext_resource type="Script" uid="uid://wq8nmcikgpcy" path="res://script/atlas_window.gd" id="1_fx1gx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tuyte"]
+
+[node name="AtlasWindow" type="Window" unique_id=533071582]
+oversampling_override = 1.0
+title = "Atlas des Animaux"
+size = Vector2i(400, 600)
+borderless = true
+script = ExtResource("1_fx1gx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=6509763]
+material = SubResource("CanvasItemMaterial_tuyte")
+offset_right = 400.0
+offset_bottom = 600.0
+color = Color(0.83137256, 0.73333335, 0.59607846, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=153770067]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][b][color=darkred]GUIDE DU TRAPPEUR - SECTEUR 4[/color][/b][/center]
+[color=black]
+[b]01. Le Lièvre des Bois[/b]
+[color=gray]Valeur marchande : Faible[/color]
+Gibier classique, abondant dans la région. Posez les pièges près des terriers. 
+[color=yellow][i]Note manuscrite :[/i][/color] [i]Ils sont de plus en plus maigres. Et ils ont arrêté de faire du bruit quand le piège se referme. Ils se laissent juste mourir.[/i]
+
+---
+[b]02. Le Cerf Commun[/b]
+[color=gray]Valeur marchande : Moyenne[/color]
+Animal majestueux, viande très demandée par la boucherie locale. Approchez toujours sous le vent.
+[color=yellow][i]Note manuscrite :[/i][/color] [i]J'en ai trouvé un coincé dans les ronces ce matin. Ses bois étaient couverts de chair humaine. Ne regardez pas dans leurs yeux la nuit.[/i]
+
+---
+[b]03. Le Renard Roux[/b]
+[color=gray]Valeur marchande : Faible (Peau uniquement)[/color]
+Prédateur nuisible. À abattre à vue si proche des camps.
+[color=yellow][i]Note manuscrite :[/i][/color] [i]Il n'y a plus de renards depuis des semaines. Quelque chose d'autre a pris leur place. Quelque chose qui imite leurs cris pour nous attirer hors des sentiers.[/i]
+
+---
+[b]04. [color=red]SPÉCIMEN NON IDENTIFIÉ[/color][/b]
+[color=gray]Valeur marchande : [b]Inestimable[/b] (Clientèle Spéciale)[/color]
+Classification impossible. Aspect rougeâtre, texture poreuse et visqueuse. Ne possède ni os, ni organes distincts.
+[color=yellow][i]Règles de manipulation :[/i][/color]
+[ul]
+Ne la touchez pas à mains nues (risque de nécrose lente).
+Ne l'exposez pas à la lumière directe.
+[b]Si la chair commence à palpiter, enfermez-la immédiatement dans la glacière du camion.[/b]
+[/ul]
+[color=yellow][i]Note manuscrite :[/i][/color] [i]Le client de la boutique paie une fortune pour ça. Ne lui posez jamais de questions sur ce qu'il en fait. Et surtout... ignorez les bruits qui viennent du sac pendant le trajet retour.[/i]"
+
+[node name="FocusBorder" type="ReferenceRect" parent="." unique_id=1830955053]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.85882354, 0, 1)
+border_width = 5.0
+editor_only = false

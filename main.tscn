@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cr1el0l2ebl8e"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://fwnokcr7j1go" path="res://scenes/trap.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cu8bj6l84ynpg" path="res://scenes/truck.tscn" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
+
+[node name="Main" type="Node3D" unique_id=1165717792]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2126664795]
+environment = SubResource("Environment_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=97174017]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=437748134]
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=190569738]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.8358917, 12.171291, -22.933056)
+size = Vector3(1, 20.408142, 38)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=729728216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.10261, 5.700653, 12.7870865)
+use_collision = true
+size = Vector3(114, 1, 147)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=215935866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.734215, 12.085646, -9.466528)
+size = Vector3(1, 20.408142, 27.391357)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1165069040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 12.940918, 11)
+radius = 5.0
+height = 23.881836
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1249725182]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.46843, 2.1712914, 19.566944)
+size = Vector3(8, 20.408142, 27.391357)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1944590084]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 45.097164, 19.342583, 46.231052)
+size = Vector3(1, 20.408142, 38)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=170533953]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31.630634, 19.256937, 64.80116)
+size = Vector3(1, 20.408142, 27.391357)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1958224604]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.545372, 18.428228, 5.5170517)
+size = Vector3(1, 20.408142, 38)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=948768826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.115486, 18.342583, 18.983582)
+size = Vector3(1, 20.408142, 27.391357)
+
+[node name="ProtoController" parent="." unique_id=1117333434 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 11, 17)
+can_sprint = true
+can_freefly = true
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_up"
+input_back = "move_down"
+input_jump = "jump"
+input_freefly = "free_fly"
+
+[node name="Trap" parent="." unique_id=833958323 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.024874, 6.700651, 18.230408)
+contenu_du_piege = "Rien"
+
+[node name="TrapRempli3" parent="." unique_id=207877459 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.257195, 7.0381126, 20.836636)
+contenu_du_piege = "Lapin"
+
+[node name="TrapRempli2" parent="." unique_id=1726983764 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6, 21)
+contenu_du_piege = "Chien"
+
+[node name="TrapRempli" parent="." unique_id=1096907243 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.419065, 6.679371, 20.945545)
+contenu_du_piege = "Chat"
+
+[node name="Truck" parent="." unique_id=1004265061 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 7, 26)

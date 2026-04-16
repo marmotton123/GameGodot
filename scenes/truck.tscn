@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cu8bj6l84ynpg"]
+
+[ext_resource type="Script" uid="uid://dw5uhb3j6ts0h" path="res://script/truck.gd" id="1_8ivgs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ivgs"]
+size = Vector3(2.5, 2.5, 5)
+
+[node name="Truck" type="StaticBody3D" unique_id=1850417869]
+script = ExtResource("1_8ivgs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=266304152]
+size = Vector3(2.5, 2.5, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1775663238]
+shape = SubResource("BoxShape3D_8ivgs")

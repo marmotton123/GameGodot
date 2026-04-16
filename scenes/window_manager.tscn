@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://crmlyadgwx2gd"]
+
+[ext_resource type="Script" uid="uid://d7w1j7y3v8l4" path="res://script/window_manager.gd" id="1_o4ntr"]
+[ext_resource type="PackedScene" uid="uid://csdxjt0p8tar1" path="res://scenes/atlas_window.tscn" id="2_ogw0n"]
+[ext_resource type="PackedScene" uid="uid://bn5pti5xq5pnu" path="res://scenes/phone_window.tscn" id="3_v5d8b"]
+
+[node name="WindowManager" type="Node" unique_id=214279234]
+script = ExtResource("1_o4ntr")
+
+[node name="AtlasWindow" parent="." unique_id=533071582 instance=ExtResource("2_ogw0n")]
+
+[node name="PhoneWindow" parent="." unique_id=791381119 instance=ExtResource("3_v5d8b")]

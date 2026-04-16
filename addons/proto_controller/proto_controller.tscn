@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
+
+[ext_resource type="Script" uid="uid://bbctb856bmvt0" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="Script" uid="uid://dxinw61s7871y" path="res://script/ray_cast_3d.gd" id="2_wr06p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
+[node name="ProtoController" type="CharacterBody3D" unique_id=394515109]
+script = ExtResource("1_ucva2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=929660196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1336849728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="." unique_id=970792477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1577998146]
+
+[node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D" unique_id=1703364385]
+light_color = Color(0.96285945, 0.9526996, 0.528694, 1)
+shadow_enabled = true
+spot_range = 15.0
+
+[node name="CarriedItem" type="CSGBox3D" parent="Head/Camera3D" unique_id=829867916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.4, -0.8)
+visible = false
+size = Vector3(0.5, 0.3, 0.8)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=1802237241]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+script = ExtResource("2_wr06p")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=892224138]
+
+[node name="Reticule" type="ColorRect" parent="UI" unique_id=72205040]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InteractText" type="Label" parent="UI" unique_id=2003370199]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 38.5
+offset_right = 54.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Appuyez sur E"
+horizontal_alignment = 1
+
+[node name="TrapCounter" type="Label" parent="UI" unique_id=1485832685]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.5
+offset_top = -84.0
+offset_right = 88.5
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pièges récupérés : 0 / 3"

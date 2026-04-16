@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bn5pti5xq5pnu"]
+
+[ext_resource type="Script" uid="uid://cm3liwl7tn3n5" path="res://script/phone_window.gd" id="1_y8gmj"]
+[ext_resource type="Texture2D" uid="uid://dia31vslhjiam" path="res://image/texture_phone.png" id="2_gc2w4"]
+
+[node name="phone_window" type="Window" unique_id=791381119]
+oversampling_override = 1.0
+title = "Smartphone"
+position = Vector2i(1500, 0)
+size = Vector2i(400, 600)
+borderless = true
+script = ExtResource("1_y8gmj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=67020352]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1276787598]
+offset_right = 400.0
+offset_bottom = 600.0
+texture = ExtResource("2_gc2w4")
+expand_mode = 1
+
+[node name="FocusBorder" type="ReferenceRect" parent="." unique_id=1449596789]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.85882354, 0, 1)
+border_width = 5.0
+editor_only = false
