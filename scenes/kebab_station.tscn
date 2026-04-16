@@ -277,7 +277,7 @@ shadow_mesh = SubResource("ArrayMesh_xplut")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hh57h"]
 size = Vector3(0.17333984, 0.06213379, 0.0947876)
 
-[node name="KebabStation" type="StaticBody3D" unique_id=416084177 node_paths=PackedStringArray("mesh_pain", "mesh_salade", "mesh_tomates", "mesh_viande", "mesh_kebab_ferme") groups=["station"]]
+[node name="KebabStation" type="StaticBody3D" unique_id=416084177 node_paths=PackedStringArray("mesh_pain", "mesh_salade", "mesh_tomates", "mesh_viande", "mesh_kebab_ferme") groups=["Station"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112883955, 0, 0)
 script = ExtResource("1_hh57h")
 mesh_pain = NodePath("pain")

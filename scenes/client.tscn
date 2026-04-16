@@ -18451,9 +18451,11 @@ _data = {
 &"Walk_Formal": SubResource("Animation_uy43a")
 }
 
-[node name="Client" type="StaticBody3D" unique_id=1995194289 node_paths=PackedStringArray("anim_player")]
+[node name="Client" type="StaticBody3D" unique_id=1995194289 node_paths=PackedStringArray("anim_player") groups=["Client"]]
 script = ExtResource("1_1t5vp")
 anim_player = NodePath("UAL1_Standard/AnimationPlayer")
+vitesse_de_marche = 10.0
+vitesse_animation_base = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1484303398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9996835, 0)

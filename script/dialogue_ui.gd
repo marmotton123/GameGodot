@@ -22,7 +22,7 @@ func _ready() -> void:
 
 ## Démarre un dialogue complet
 func start_dialogue(subject: String, full_text: String) -> void:
-	# On formate le texte avec BBCode : Sujet en jaune, puis texte en blanc
+	# On formate le texte : Sujet + texte
 	dialogue_text = subject + " : " + full_text
 	
 	# On réinitialise l'affichage
@@ -52,10 +52,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_active:
 		if current_index == dialogue_text.length():
 			# Le texte est fini d'écrire, on ferme le dialogue
-			self.hide()
-			is_active = false
+			fermer_dialogue()
 		else:
 			# L'écriture est en cours, on affiche tout le texte d'un coup
 			dialogue_timer.stop()
 			text_label.text = dialogue_text
 			current_index = dialogue_text.length()
+
+# --- NOUVELLE FONCTION POUR FERMER DEPUIS LE CLIENT ---
+func fermer_dialogue() -> void:
+	self.hide()
+	is_active = false
+	dialogue_timer.stop() # On s'assure que le timer s'arrête bien

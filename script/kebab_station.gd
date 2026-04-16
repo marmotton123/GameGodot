@@ -45,25 +45,15 @@ func fermer_kebab():
 	print("Kebab fermé !")
 
 func servir_kebab():
-	# 1. On cherche tous les objets dans le jeu qui ont le badge "Clients"
-	var tous_les_clients = get_tree().get_nodes_in_group("Clients")
-	var client_qui_attend = null
+	# 1. On donne le kebab au client actuel (ce qui le fait disparaître)
+	get_tree().call_group("Client", "recevoir_kebab")
 	
-	# 2. On vérifie s'il y en a un qui est arrivé au comptoir
-	for c in tous_les_clients:
-		if c.en_attente_kebab == true:
-			client_qui_attend = c
-			break # On a trouvé notre client, on arrête de chercher
-			
-	# 3. Si on a trouvé quelqu'un, on lui donne !
-	if client_qui_attend != null:
-		client_qui_attend.recevoir_kebab()
-		reinitialiser_station() # On nettoie la table
-		print("Kebab donné au client !")
-	else:
-		# S'il n'y a personne (ou qu'il est encore en train de marcher)
-		print("Personne n'attend de commande !")
-		# Optionnel : Tu pourrais afficher un petit texte à l'écran du joueur
+	# 2. On nettoie la table et on reverrouille la cuisine
+	reinitialiser_station()
+	
+	# 3. On prévient le GameManager de lancer le compte à rebours aléatoire !
+	get_tree().call_group("Manager", "demarrer_chrono_prochain_client")
+
 # --- LES ACTIONS DES BACS (Restent pareilles) ---
 func essayer_ajouter_pain():
 	if etape_recette == 0:

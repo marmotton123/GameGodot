@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://1u24fjcslpkt"]
 
+[ext_resource type="Script" uid="uid://c7divgugcnb7h" path="res://scenes/game_manager.gd" id="1_3mj5r"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_lx5au"]
 [ext_resource type="PackedScene" uid="uid://dgwg76hemn7j2" path="res://scenes/client.tscn" id="2_xfvoa"]
 [ext_resource type="Script" uid="uid://c7jp81f8677ym" path="res://script/dialogue_ui.gd" id="4_032fp"]
@@ -1894,20 +1895,20 @@ shadow_mesh = SubResource("ArrayMesh_8af1y")
 
 [node name="Shop" type="Node3D" unique_id=1755080577]
 
-[node name="Client" parent="." unique_id=1995194289 node_paths=PackedStringArray("dialogue_ui_node", "point_intermediaire", "destination_node") instance=ExtResource("2_xfvoa")]
-transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 58.816097, 0.5003165, -6.818488)
-dialogue_ui_node = NodePath("../CanvasLayer_Dialogue")
-point_intermediaire = NodePath("../déplacement/PointDePassage")
-destination_node = NodePath("../déplacement/DestinationClient")
-vitesse_de_marche = 3.0
-vitesse_animation_base = 3.0
+[node name="GameManager" type="Node" parent="." unique_id=1122612796 node_paths=PackedStringArray("point_apparition") groups=["Manager"]]
+script = ExtResource("1_3mj5r")
+scene_client = ExtResource("2_xfvoa")
+point_apparition = NodePath("../Marker/PointApparition")
 
-[node name="déplacement" type="Node3D" parent="." unique_id=208770627]
+[node name="Marker" type="Node3D" parent="." unique_id=208770627]
 
-[node name="DestinationClient" type="Marker3D" parent="déplacement" unique_id=1130286280]
+[node name="PointApparition" type="Marker3D" parent="Marker" unique_id=1433615430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.985115, 0.5, -16.444622)
+
+[node name="DestinationClient" type="Marker3D" parent="Marker" unique_id=1130286280]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.42886, 0.5, -0.14127207)
 
-[node name="PointDePassage" type="Marker3D" parent="déplacement" unique_id=469669199]
+[node name="PointDePassage" type="Marker3D" parent="Marker" unique_id=469669199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.92534, 0.5, -1.7165086)
 
 [node name="ProtoController" parent="." unique_id=394515109 instance=ExtResource("1_lx5au")]
