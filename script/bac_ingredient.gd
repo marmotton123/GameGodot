@@ -28,7 +28,7 @@ func _process(delta):
 			# NOUVEAU : Évite un bug si tu as mis "0 seconde" pour le pain
 			if temps_requis > 0:
 				progress_circle.show()
-				progress_circle.value = (temps_maintenu / temps_requis) * 100
+				progress_circle.value = clamp((temps_maintenu / temps_requis) * 100, 0, 100)
 			
 		if temps_maintenu >= temps_requis:
 			valider_ingredient()
