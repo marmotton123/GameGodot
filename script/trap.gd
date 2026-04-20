@@ -4,7 +4,7 @@ class_name Trap
 @export var contenu_du_piege: String = "Rien"
 
 func interact(player) -> void:
-	if player.is_carrying != true:
+	if not player.is_carrying:
 		if contenu_du_piege == "Rien":
 			print("Le piège est vide. Je repasserai plus tard.")
 		elif contenu_du_piege == "Chair non identifiée":

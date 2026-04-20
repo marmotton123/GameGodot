@@ -1,4 +1,4 @@
-extends StaticBody3D # TRÈS IMPORTANT : Doit être un StaticBody3D pour être cliquable
+extends Interactable
 class_name KebabStation
 
 @export var mesh_pain : Node3D
@@ -9,7 +9,6 @@ class_name KebabStation
 
 var commande_en_cours : bool = false
 var etape_recette : int = 0 
-var joueur_regarde : bool = false # Pour que le joueur puisse interagir
 
 func _ready():
 	reinitialiser_station()
@@ -24,14 +23,11 @@ func reinitialiser_station():
 	mesh_kebab_ferme.visible = false
 
 # --- FONCTION D'INTERACTION DIRECTE (Appelée par le joueur) ---
-func _process(_delta):
-	# Si le joueur regarde le Kebab sur la table ET fait un clic simple sur E
-	if joueur_regarde and Input.is_action_just_pressed("interact"):
-		
-		if etape_recette == 4: # Viande mise, prêt à fermer
-			fermer_kebab()
-		elif etape_recette == 5: # Kebab déjà fermé, prêt à servir
-			servir_kebab()
+func interact(player) -> void:
+	if etape_recette == 4: # Viande mise, prêt à fermer
+		fermer_kebab()
+	elif etape_recette == 5: # Kebab déjà fermé, prêt à servir
+		servir_kebab()
 
 func fermer_kebab():
 	# On cache tous les ingrédients ouverts...

@@ -42,18 +42,6 @@ func _physics_process(_delta: float) -> void:
 				# Si l'objet est normal (une porte, un PNJ classique...)
 				interact_text.show()
 					
-			
-			# --- PHASE 2 : ACTION (CLIC SIMPLE) ---
-			if Input.is_action_just_pressed("interact"):
-				
-				# On empêche le clic si l'objet n'est pas disponible (ex: kebab fermé)
-				if current_target.has_method("est_disponible") and not current_target.est_disponible():
-					pass # On ne fait rien
-					
-				# Sinon, on interagit normalement
-				elif current_target.has_method("interact"):
-					current_target.interact(player)
-					
 		else:
 			# L'objet touché n'est ni interactif ni un bac de cuisine
 			_cleanup_target()
@@ -77,3 +65,12 @@ func _cleanup_target() -> void:
 		current_target = null
 		
 	interact_text.hide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and current_target != null:
+		# On empêche le clic si l'objet n'est pas disponible (ex: kebab fermé)
+		if current_target.has_method("est_disponible") and not current_target.est_disponible():
+			return
+		# Sinon, on interagit normalement
+		elif current_target.has_method("interact"):
+			current_target.interact(player)

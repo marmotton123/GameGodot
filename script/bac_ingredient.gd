@@ -1,4 +1,5 @@
-extends StaticBody3D
+extends Interactable
+class_name BacIngredient
 
 @export var nom_ingredient : String = "pain"
 @export var temps_requis : float = 2.0 # 2 secondes pour salade, tomate, viande
