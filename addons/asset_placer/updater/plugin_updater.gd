@@ -92,6 +92,10 @@ func apply_update():
 			continue
 
 		var new_file_path: String = path.replace(base_path, "")
+		if new_file_path.is_absolute_path() or new_file_path.simplify_path().begins_with(".."):
+			push_error("Potential path traversal attempt detected in ZIP: %s" % path)
+			continue
+
 		if path.ends_with("/"):
 			DirAccess.make_dir_recursive_absolute("res://addons/%s" % new_file_path)
 		else:
