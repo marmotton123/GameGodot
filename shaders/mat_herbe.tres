@@ -1,0 +1,53 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cbyptafxngoo0"]
+
+[ext_resource type="Shader" uid="uid://cba34pkwx02ia" path="res://shaders/mat_herbe.gdshader" id="1_0vxyx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jh72s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_apuar"]
+noise = SubResource("FastNoiseLite_jh72s")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y1yje"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_axkm6"]
+noise = SubResource("FastNoiseLite_y1yje")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n84xr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pfqss"]
+noise = SubResource("FastNoiseLite_n84xr")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0vxyx")
+shader_parameter/bottom_color = Color(0.41568628, 0.69411767, 0.26666668, 1)
+shader_parameter/top_color = Color(0.1764706, 0.33333334, 0.09411765, 1)
+shader_parameter/color_variation_1 = Color(0.35820636, 0.6004635, 0.22903898, 1)
+shader_parameter/noise_variation_1 = SubResource("NoiseTexture2D_apuar")
+shader_parameter/Noise1Scale = 20.0
+shader_parameter/color_variation_2 = Color(0.1302787, 0.25546265, 0.064661376, 1)
+shader_parameter/noise_variation_2 = SubResource("NoiseTexture2D_axkm6")
+shader_parameter/Noise2Scale = 20.0
+shader_parameter/windSpeed = 0.005
+shader_parameter/windDis = 0.2
+shader_parameter/noiseStrength = 0.5
+shader_parameter/displaceStrength = 3.0
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_pfqss")
+shader_parameter/windNoiseScale = 20.0
+shader_parameter/windNoisePanSpeed = Vector2(0.03, 0.03)
+shader_parameter/noiseFloor = 0.3
+shader_parameter/wind_noise_scale_strength = 0.2
+shader_parameter/wind_shadow_color = Color(0, 0.2, 0, 1)
+shader_parameter/wind_shadow_strength = 0.4
+shader_parameter/flatten_shadow_strength = 0.7
+shader_parameter/wind_shadow_displacement_threshold = 0.15
+shader_parameter/wind_shadow_smoothing = 0.3
+shader_parameter/interracting_object_pos = Vector3(0, 0, 0)
+shader_parameter/flatten_radius = 0.75
+shader_parameter/flatten_strength = 3.0
+shader_parameter/flatten_floor = 0.3
+shader_parameter/combined_noise_min_scale = 0.5
+shader_parameter/combined_noise_max_scale = 1.5
+shader_parameter/invert_combined_noise = false
+shader_parameter/debug_show_wind_noise = false
+shader_parameter/debug_show_combined_noise = false

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cuqu8ygdd4n88"]
+
+[ext_resource type="Material" uid="uid://cbyptafxngoo0" path="res://shaders/mat_herbe.tres" id="1_rqkcn"]
+[ext_resource type="ArrayMesh" uid="uid://er8nljgvawhk" path="res://texture 3d/GrassMesh.res" id="2_gvops"]
+
+[node name="Herbe" type="Node3D" unique_id=1456679791]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004431547]
+material_override = ExtResource("1_rqkcn")
+cast_shadow = 0
+mesh = ExtResource("2_gvops")
