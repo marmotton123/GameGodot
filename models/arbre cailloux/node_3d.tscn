@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4xab64gcjqwi"]
+
+[ext_resource type="ArrayMesh" uid="uid://ciqcwbw3xixr1" path="res://models/arbre cailloux/new_array_mesh.tres" id="1_l4k3k"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l4k3k"]
+height = 5.6307707
+radius = 0.42382813
+
+[node name="arbre" type="Node3D" unique_id=129527892]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1817804792]
+
+[node name="NewArrayMesh" type="MeshInstance3D" parent="StaticBody3D" unique_id=2067946029]
+transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, -0.0034297705, 0, 0.1953876)
+mesh = ExtResource("1_l4k3k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1303703181]
+transform = Transform3D(1, 0, 0, 0, -1, -1.0331603e-07, 0, 1.0331603e-07, -1, 0.043277383, 2.8156266, 0.13766831)
+shape = SubResource("CylinderShape3D_l4k3k")

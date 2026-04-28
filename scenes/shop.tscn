@@ -1915,11 +1915,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.92534, 0.5, -1.7165086)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.11449, 0.5018414, -2.0209723)
 can_sprint = true
 can_freefly = true
-input_left = "move_left"
-input_right = "move_right"
-input_forward = "move_up"
-input_back = "move_down"
-input_jump = "jump"
 input_freefly = "free_fly"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1870092931]
